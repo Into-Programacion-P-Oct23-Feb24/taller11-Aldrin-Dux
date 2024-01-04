@@ -5,6 +5,9 @@
  */
 package problemas;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  *
  * @author reroes
@@ -16,39 +19,36 @@ public class Problema3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        double nota1 = 10;
-        double nota2 = 5;
-        double nota3 = 8;
-        double nota4 = 7;
-        obtenerPromedio(nota1, nota2, nota3, nota4);
+        Scanner entrada = new Scanner(System.in);
+        entrada.useLocale(Locale.US);
+        System.out.println("Ingrese valor de la nota 1");
+        double nota1 = entrada.nextDouble();
+        System.out.println("Ingrese valor de la nota 2");
+        double nota2 = entrada.nextDouble();
+        System.out.println("Ingrese valor de la nota 3");
+        double nota3 = entrada.nextDouble();
+        System.out.println("Ingrese valor de la nota 4");
+        double nota4 = entrada.nextDouble();
+        String promedio = obtenerPromedio(nota1, nota2, nota3, nota4);
+        System.out.println(promedio);
 
     }
 
-    public static void obtenerPromedio(double n1, double n2, double n3, double n4) {
-        String cadena = "";
+    public static String obtenerPromedio(double n1, double n2, double n3, double n4) {
+        String promedio;
         double prom;
         prom = (n1 + n2 + n3 + n4) / 4;
         if (prom >= 0 && prom <= 5) {
-            cadena = String.format("%sEl promedio de las notas es Regular",
-                    cadena);
-            System.out.printf("%s", cadena);
-        } else {
-            if (prom >= 5.1 && prom <= 8) {
-                cadena = String.format("%sEl promedio de las notas es Regular",
-                        cadena);
-                System.out.printf("%s", cadena);
-            } else {
-                if (prom >= 8.1 && prom <= 9) {
-                    cadena = String.format("%sEl promedio de las notas es Regular",
-                            cadena);
-                    System.out.printf("%s", cadena);
-                } else {
-                    if (prom >= 9.1 && prom <= 10) {
-                        cadena = String.format("%sEl promedio de las notas es Regular",
-                                cadena);
-                        System.out.printf("%s", cadena);
-                    }
-                }
-            }
+            promedio = "El promedio de las notas es Regular";
         }
+        if (prom >= 5.1 && prom <= 8) {
+            promedio = "El promedio de las notas es Bueno";
+        }
+        if (prom >= 8.1 && prom <= 9) {
+            promedio = "El promedio de las notas es Muy Bueno";
+        }
+        if (prom >= 9.1 && prom <= 10) {
+            promedio = "El promedio de las notas es Sobresaliente";
+        }
+        return promedio;
     }
