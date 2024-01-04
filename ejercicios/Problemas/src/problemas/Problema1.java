@@ -20,7 +20,16 @@ public class Problema1 {
     }
 
     public static void imprimirDatos(int[][] datos) {
-
+        String cadena = "";
+        for (int f = 0; f < datos.length; f++) {
+            for (int c = 0; c < datos[f].length; c++) {
+                if (datos[f][c] % 2 == 0) {
+                    cadena = String.format("%s%d ", cadena, datos[f][c]);
+                }
+            }
+        }
+        System.out.printf("Numeros pares de los arreglos son: \n"
+                + "%s\n", cadena);
     }
 
 }
