@@ -30,25 +30,27 @@ public class Problema3 {
         System.out.println("Ingrese valor de la nota 4");
         double nota4 = entrada.nextDouble();
         String promedio = obtenerPromedio(nota1, nota2, nota3, nota4);
-        System.out.println(promedio);
+        System.out.printf("El promedio de las notas %.0f %.0f %.0f %.0f es %s\n",
+                nota1,nota2,nota3,nota4,promedio);
 
     }
 
     public static String obtenerPromedio(double n1, double n2, double n3, double n4) {
-        String promedio;
+        String promedio="";
         double prom;
         prom = (n1 + n2 + n3 + n4) / 4;
         if (prom >= 0 && prom <= 5) {
-            promedio = "El promedio de las notas es Regular";
+            promedio = "Regular";
         }
         if (prom >= 5.1 && prom <= 8) {
-            promedio = "El promedio de las notas es Bueno";
+            promedio = "Bueno";
         }
         if (prom >= 8.1 && prom <= 9) {
-            promedio = "El promedio de las notas es Muy Bueno";
+            promedio = "Muy Bueno";
         }
         if (prom >= 9.1 && prom <= 10) {
-            promedio = "El promedio de las notas es Sobresaliente";
+            promedio = "Sobresaliente";
         }
         return promedio;
     }
+}
